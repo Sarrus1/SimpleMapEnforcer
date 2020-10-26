@@ -17,7 +17,8 @@ public void OnPluginStart()
     cForcedNextMap = CreateConVar("sm_forced_nextmap", "de_dust2", "Forced value of sm_nextmap");
     AutoExecConfig();
     char sBuffer[512];
-    Format(sCommand, sizeof(sCommand), "sm_nextmap %s", GetConVarString(cForcedNextMap, sBuffer, sizeof(sBuffer)));
+    GetConVarString(cForcedNextMap, sBuffer, sizeof(sBuffer));
+    Format(sCommand, sizeof(sCommand), "sm_nextmap %s", sBuffer);
     ServerCommand(sCommand);
 }
 
